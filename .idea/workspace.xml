@@ -2,19 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a8d980f-ba3b-44e0-9475-db498786beb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Synchronized-Databases-RabbitMQ.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddProductGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddProductGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Synchronized-Databases-RabbitMQ.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Synchronized-Databases-RabbitMQ.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Synchronized-Databases-RabbitMQ/AddProductGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Synchronized-Databases-RabbitMQ/AddProductGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Synchronized-Databases-RabbitMQ/AddProductGUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Synchronized-Databases-RabbitMQ/AddProductGUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Synchronized-Databases-RabbitMQ/AddProductGUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Synchronized-Databases-RabbitMQ/AddProductGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Synchronized-Databases-RabbitMQ/BOGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Synchronized-Databases-RabbitMQ/BOGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Synchronized-Databases-RabbitMQ/HOGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Synchronized-Databases-RabbitMQ/HOGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Synchronized-Databases-RabbitMQ/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Synchronized-Databases-RabbitMQ/ManageData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Synchronized-Databases-RabbitMQ/ManageData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddProductGUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BOGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BOGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HOGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HOGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ManageData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManageData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VisualiseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VisualiseData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -32,13 +48,18 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/msi/OneDrive/Bureau/mysql-connector-j-8.3.0/mysql-connector-j-8.3.0.jar",
+    "last_opened_file_path": "C:/Users/msi/OneDrive/Bureau/jar_files/kotlin-stdlib-common-1.4.0.jar",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\msi\OneDrive\Bureau\tp systemes repartis\Synchronized-Databases-RabbitMQ" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

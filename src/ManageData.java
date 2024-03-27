@@ -1,6 +1,8 @@
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import io.github.cdimascio.dotenv.Dotenv;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,14 +10,23 @@ import java.sql.Statement;
 
 
 public class ManageData {
+
     public final static String HO_QUEUE = "ho_queue";
     public final static String HO_DBNAME = "HO";
+    // Global database connection variables
+    static Dotenv dotenv = Dotenv.load();
+
+    private static String url= dotenv.get("DB_URL");
+    private static String username= dotenv.get("DB_USERNAME");;
+    private static String password=dotenv.get("DB_PASSWORD");;
+
 
     // Creates a database with the specified name if it doesn't exist
     public static void createDb(String dbName){
+
         try{
-            // Establish connction to MySQL server
-            java.sql.Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3304/" , "root" , "ilef");
+            // Establish connection to MySQL server
+            java.sql.Connection con= DriverManager.getConnection(url+dbName, username, password);
             Statement stmt=con.createStatement();
             // Execute SQL query to create the database if not exists
             Boolean result = stmt.execute("CREATE DATABASE if not exists "+dbName);
@@ -30,9 +41,10 @@ public class ManageData {
     }
     // Creates a product table in the specified database if it doesn't exist
     public static void createProductTable(String dbName){
+
         try{
             // Establish connection to the specified database
-            java.sql.Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3304/"+dbName,"root","ilef");
+            java.sql.Connection con= DriverManager.getConnection(url+dbName, username, password);
             // Create a statement for executing SQL queries
             Statement stmt=con.createStatement();
             // SQL query to create 'product' table with required columns
@@ -57,9 +69,9 @@ public class ManageData {
     }
     // Sends a Product object to be stored in the specified database (insert or replace a product in the database)
     public static void sendToDB(Product p, String dbName){
+
         try{
-            java.sql.Connection con= DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3304/"+dbName,"root","ilef");
+            java.sql.Connection con= DriverManager.getConnection(url+dbName, username, password);
 
             String sql = "replace into product (id, product, qty, cost, amt, tax, total, region) values (?, ?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -80,10 +92,12 @@ public class ManageData {
     }
     // Retrieves all products from the specified database and returns them
     public static String[][] getAllProducts(String dbName){
+
+
         String[][] products = new String[100][9];
         int i=0;
         try {
-            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3304/" + dbName, "root", "ilef");
+            java.sql.Connection con = DriverManager.getConnection( url+dbName, username, password);
             Statement stmt = con.createStatement();
             String sql = "SELECT * FROM product;";
             ResultSet rs =  stmt.executeQuery(sql);
@@ -139,8 +153,10 @@ public class ManageData {
 
     // Sends old data from the specified database to HO
     public static void sendOldDataToHO(String dbName)  {
+
+
         try {
-            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3304/" + dbName, "root", "ilef");
+            java.sql.Connection con = DriverManager.getConnection(url+dbName, username, password);
             Statement stmt = con.createStatement();
             String sql = "SELECT * FROM product;";
             ResultSet product =  stmt.executeQuery(sql);
@@ -163,8 +179,9 @@ public class ManageData {
     }
 
     public static void execQuery(String sql,String dbName){
+
         try{
-            java.sql.Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3304/"+dbName,"root","ilef");
+            java.sql.Connection con= DriverManager.getConnection(url+dbName, username, password);
             Statement stmt=con.createStatement();
             stmt.executeUpdate(sql);
         }catch(Exception e){

@@ -46,7 +46,7 @@ public class HOGUI {
         ManageData.createDb(HO_DBNAME);
         ManageData.createProductTable(HO_DBNAME);
         intialiseHOdb();
-        new AddProductGUI(HO_DBNAME);
+        new HoShowProductGUI(HO_DBNAME);
     }
 
     public static void main(String[] args) {

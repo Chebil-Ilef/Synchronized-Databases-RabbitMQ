@@ -1,33 +1,26 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.util.UUID;
-import java.time.LocalDate;
+
 import java.awt.Color;
-import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.Font;
 
 
-public class AddProductGUI {
-    public final static String HO_QUEUE = "ho_queue";
-    public final static String HO_DBNAME = "HO";
-    public final String dbName;
-    public AddProductGUI(String dbName) {
-        this.dbName = dbName;
-        JFrame f = new JFrame(dbName+"database");
+public class BoManageProductGUI {
+    public BoManageProductGUI(String dbName) {
+        JFrame f = new JFrame(dbName);
         JTextField t1, t2, t3,  t5, t6, t7;
         f.setSize(600, 1200);
         JPanel p = new JPanel();
         p.setBorder(new EmptyBorder(10, 10, 10, 10));
-        if (dbName=="HO"){p.setBackground(new Color(236, 226, 103));}
-        else {p.setBackground(new Color(236, 126, 103));
-            t1 = new JTextField("ProductName", 16);
+        p.setBackground(new Color(183, 223, 199));
+
+            t1 = new JTextField("Product Name", 16);
             JLabel productLabel = new JLabel("Product Name");
             productLabel.setFont(new Font("Verdana", Font.BOLD, 16));
             p.add(productLabel);
@@ -39,26 +32,26 @@ public class AddProductGUI {
             p.add(qtyLabel);
             p.add(t2);
 
-            t3 = new JTextField("Sousse", 16);
+            t3 = new JTextField("Monastir", 16);
             JLabel regionLabel = new JLabel("Region");
             regionLabel.setFont(new Font("Verdana", Font.BOLD, 16));
             p.add(regionLabel);
             p.add(t3);
 
 
-            t5 = new JTextField("1206",8);
+            t5 = new JTextField("250",8);
             JLabel costLabel = new JLabel("Cost");
             costLabel.setFont(new Font("Verdana", Font.BOLD, 16));
             p.add(costLabel);
             p.add(t5);
 
-            t6 = new JTextField("6",8);
+            t6 = new JTextField("4",8);
             JLabel amtLabel = new JLabel("Amount");
             amtLabel.setFont(new Font("Verdana", Font.BOLD, 16));
             p.add(amtLabel);
             p.add(t6);
 
-            t7 = new JTextField("10",8);
+            t7 = new JTextField("50",8);
             JLabel taxLabel = new JLabel("Tax");
             taxLabel.setFont(new Font("Verdana", Font.BOLD, 16));
             p.add(taxLabel);
@@ -133,33 +126,31 @@ public class AddProductGUI {
                     float tax = Float.parseFloat(t7.getText());
                     float total = (qty *  cost) + amt + (tax * (qty * cost));
                     Product p = new Product( product, qty, cost, amt, tax, total, region);
-                    //  If it is HO then it will only create a product in the HO database
-                    // else it will create in BO and send a message the rabbitmq with flag = "ADD" and the product to add
+
                     ManageData.sendToDB(p,dbName);
-                    // To fix  it
-                    if (dbName != HO_DBNAME){
-                        ManageData.sendToHO(p);}
+                    ManageData.sendToHO(p);
+
                     JFrame f = new JFrame("retrieved data");
                     JPanel p0 = new JPanel();
                     String column[] = {"id","product","qty","cost","amt","tax","total","region"};
                     String[][] products = ManageData.getAllProducts(dbName);
-                    label.setText("* db updated with product "+ product);
+                    label.setText("* SUCCESS: DB updated with product "+ product);
                     JOptionPane.showMessageDialog(null, "product "+ p.product +" added successfully!");
                 }
             });
             p.add(addBtn);
-        }
+
         p.setLayout(new GridLayout(9, 1, 15, 10));
         f.add(p, BorderLayout.CENTER);
 
-        JButton showBtn = new JButton("Show products");
+        JButton showBtn = new JButton("Show Products");
         showBtn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 new VisualiseData(dbName);
             }
         });
 
-         p.add(showBtn);
+        p.add(showBtn);
 
         f.add(p);
         f.setSize(450,550);
