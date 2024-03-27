@@ -1,1 +1,0 @@
-# Synchronized-Databases-with-RabbitMQ
