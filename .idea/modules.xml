@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Databases.iml" filepath="$PROJECT_DIR$/Databases.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Synchronized-Databases-RabbitMQ.iml" filepath="$PROJECT_DIR$/Synchronized-Databases-RabbitMQ.iml" />
     </modules>
   </component>
 </project>

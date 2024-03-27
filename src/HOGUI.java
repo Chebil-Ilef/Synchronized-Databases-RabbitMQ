@@ -4,7 +4,6 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
 
 public class HOGUI {
-    public final String siteName= "HO";
     public final String HO_DBNAME = "HO";
     public final String HO_QUEUE = "ho_queue";
 
@@ -41,24 +40,7 @@ public class HOGUI {
         }
     }
 
-    public  void recieveQuery(){
-        try{
-            ConnectionFactory factory = new ConnectionFactory();
-            factory.setHost("localhost");
-            Connection connection = factory.newConnection();
-            Channel channel = connection.createChannel();
-            channel.queueDeclare(HO_QUEUE, false, false, false, null);
-            DeliverCallback deliverCallback = (consumerTag, delivery) -> {
-                String sql = new String(delivery.getBody(), "UTF-8");
-                ManageData.execQuery(sql,HO_DBNAME);
 
-            };
-            channel.basicConsume(HO_QUEUE, true, deliverCallback, consumerTag -> {
-            });
-        }catch(Exception e){
-            System.out.println("error in query reception ");
-        }
-    }
 
     public HOGUI(){
         ManageData.createDb(HO_DBNAME);

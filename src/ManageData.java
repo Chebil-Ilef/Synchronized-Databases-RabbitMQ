@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.time.LocalDate;
 
 
 public class ManageData {
@@ -137,19 +136,7 @@ public class ManageData {
         }
     }
 
-    public static void sendQueryToHO(String sql) {
-        try {
-            ConnectionFactory factory = new ConnectionFactory();
-            factory.setHost("localhost");
-            Connection connection = factory.newConnection();
-            Channel channel = connection.createChannel();
-            channel.queueDeclare(HO_QUEUE, false, false, false, null);
-            String msg = sql.toString();
-            channel.basicPublish("", HO_QUEUE, null, msg.getBytes());
-        }catch (Exception e){
-            System.out.println("error sending data to HO ");
-        }
-    }
+
     // Sends old data from the specified database to HO
     public static void sendOldDataToHO(String dbName)  {
         try {
